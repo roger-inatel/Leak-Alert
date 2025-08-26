@@ -30,51 +30,74 @@ export default tseslint.config([
     ],
     languageOptions: {
 
-      # LeakAlert
 
-      ## Descrição
-      LeakAlert é uma plataforma para simular a detecção de vazamento de dados de e-mails, com painel de histórico e alertas. Ideal para aprender sobre segurança, React, versionamento e boas práticas de desenvolvimento.
+      # 🛡️ LeakAlert
 
-      ## Funcionalidades
+      🔒 **Seu e-mail protegido!**
+
+      Bem-vindo ao LeakAlert! Este projeto foi criado com carinho para ajudar pessoas a entenderem e simularem a detecção de vazamento de dados de e-mails. Aqui você encontra recursos de monitoramento, histórico e alertas, tudo pensado para quem quer aprender sobre segurança digital e boas práticas de desenvolvimento.
+
+      ---
+
+      ## 🚀 Funcionalidades
+
       - Cadastro de e-mails para monitoramento
-      - Simulação de vazamentos em base fake
+      - Simulação de vazamentos em uma base fake
       - Painel de histórico de buscas
       - Alertas de possíveis vazamentos
 
-      ## Tecnologias Utilizadas
+      ---
+
+      ## 🛠️ Tecnologias Utilizadas
+
       - React + Vite (frontend)
       - TypeScript
       - Git e GitHub para versionamento
 
-      ## Como rodar o projeto
-      ```bash
-      # Clone o repositório
-      git clone https://github.com/roger-inatel/Leak-Alert.git
+      ---
 
-      # Entre na pasta do frontend
-      cd leakalert-frontend
+      ## ▶️ Como rodar o projeto
 
-      # Instale as dependências
-      npm install
+      1. Clone o repositório:
+         `git clone https://github.com/roger-inatel/Leak-Alert.git`
+      2. Entre na pasta do frontend:
+         `cd leakalert-frontend`
+      3. Instale as dependências:
+         `npm install`
+      4. Rode o projeto:
+         `npm run dev`
 
-      # Rode o projeto
-      npm run dev
-      ```
+      ---
 
-      ## Imagens/Demonstração
-      Em breve: prints do painel, cadastro e histórico.
+      ## 🖼️ Imagens/Demonstração
 
-      ## Aprendizados
+      Em breve você verá aqui prints do painel, cadastro e histórico. Cada detalhe será pensado para transmitir segurança e facilidade de uso.
+
+      ---
+
+      ## 📚 Aprendizados
+
+      Este projeto é meu laboratório de aprendizado! Aqui estou praticando:
       - React moderno com Vite
       - Versionamento com Git e GitHub
       - Estruturação de projetos profissionais
       - Boas práticas de documentação
+      - Segurança digital
 
-      ## Futuras melhorias
+      ---
+
+      ## ✨ Futuras melhorias
+
       - Integração com APIs reais de vazamento
       - Autenticação de usuários
       - Deploy na AWS
       - UI/UX aprimorada
 
-      ## Contato
-      [LinkedIn](https://www.linkedin.com/in/seu-usuario) | roger.inatel@gmail.com
+      ---
+
+      ## 📬 Contato
+
+      Se quiser trocar uma ideia, dar sugestões ou acompanhar meu progresso:
+      - [LinkedIn](https://www.linkedin.com/in/seu-usuario)
+      - Email: roger.pereira@ges.inatel.br
+

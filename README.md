@@ -29,41 +29,52 @@ export default tseslint.config([
       // Other configs...
     ],
     languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+      # LeakAlert
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+      ## Descrição
+      LeakAlert é uma plataforma para simular a detecção de vazamento de dados de e-mails, com painel de histórico e alertas. Ideal para aprender sobre segurança, React, versionamento e boas práticas de desenvolvimento.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+      ## Funcionalidades
+      - Cadastro de e-mails para monitoramento
+      - Simulação de vazamentos em base fake
+      - Painel de histórico de buscas
+      - Alertas de possíveis vazamentos
+
+      ## Tecnologias Utilizadas
+      - React + Vite (frontend)
+      - TypeScript
+      - Git e GitHub para versionamento
+
+      ## Como rodar o projeto
+      ```bash
+      # Clone o repositório
+      git clone https://github.com/roger-inatel/Leak-Alert.git
+
+      # Entre na pasta do frontend
+      cd leakalert-frontend
+
+      # Instale as dependências
+      npm install
+
+      # Rode o projeto
+      npm run dev
+      ```
+
+      ## Imagens/Demonstração
+      Em breve: prints do painel, cadastro e histórico.
+
+      ## Aprendizados
+      - React moderno com Vite
+      - Versionamento com Git e GitHub
+      - Estruturação de projetos profissionais
+      - Boas práticas de documentação
+
+      ## Futuras melhorias
+      - Integração com APIs reais de vazamento
+      - Autenticação de usuários
+      - Deploy na AWS
+      - UI/UX aprimorada
+
+      ## Contato
+      [LinkedIn](https://www.linkedin.com/in/seu-usuario) | roger.inatel@gmail.com

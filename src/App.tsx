@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [emails, setEmails] = useState<string[]>([]);
+
   return (
     <div
       style={{
@@ -25,6 +28,45 @@ function App() {
         <a href="#" style={{ color: '#4fc3f7', margin: '0 16px', fontSize: '1.1rem', textDecoration: 'none', fontWeight: 'bold' }}>Cadastro</a>
         <a href="#" style={{ color: '#4fc3f7', margin: '0 16px', fontSize: '1.1rem', textDecoration: 'none', fontWeight: 'bold' }}>Histórico</a>
       </nav>
+
+      {/* Formulário de cadastro */}
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          if (email.trim() !== '') {
+            setEmails([...emails, email]);
+            setEmail('');
+          }
+        }}
+        style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Digite seu e-mail"
+          style={{ padding: '8px', fontSize: '1rem', borderRadius: '4px', border: 'none', marginBottom: '8px', width: '250px' }}
+          required
+        />
+        <button
+          type="submit"
+          style={{ padding: '8px 16px', fontSize: '1rem', borderRadius: '4px', background: '#4fc3f7', color: '#222', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}
+        >
+          Cadastrar e-mail
+        </button>
+      </form>
+
+      {/* Lista de e-mails cadastrados */}
+      {emails.length > 0 && (
+        <div style={{ marginTop: '24px' }}>
+          <h3>E-mails cadastrados:</h3>
+          <ul>
+            {emails.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

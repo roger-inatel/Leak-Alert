@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 
+const vazados = [
+  'rogerio@gmail.com',
+  'lucca@gmail.com',
+  'lucca2@gmail.com'
+];
+
 function App() {
   const [email, setEmail] = useState('');
   const [emails, setEmails] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [vazamentoMsg, setVazamentoMsg] = useState('');
+
+  function verificarVazamento(email: string) {
+    if (vazados.includes(email)) {
+      setVazamentoMsg(`⚠️ Vazamento detectado para ${email}!`);
+    } else {
+      setVazamentoMsg(`✅ Nenhum vazamento encontrado para ${email}.`);
+    }
+  }
 
   return (
     <div
@@ -56,6 +71,7 @@ function App() {
             setEmail(e.target.value);
             setError('');
             setSuccess('');
+            setVazamentoMsg('');
           }}
           placeholder="Digite seu e-mail"
           style={{ padding: '8px', fontSize: '1rem', borderRadius: '4px', border: 'none', marginBottom: '8px', width: '250px' }}
@@ -85,9 +101,34 @@ function App() {
           <h3 style={{ marginBottom: '12px' }}>E-mails cadastrados:</h3>
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {emails.map((item, idx) => (
-              <li key={idx} style={{ marginBottom: '8px', color: '#4fc3f7', fontWeight: 'bold' }}>{item}</li>
+              <li key={idx} style={{ marginBottom: '8px', color: '#4fc3f7', fontWeight: 'bold' }}>
+                {item}
+                <button
+                  style={{
+                    marginLeft: '12px',
+                    padding: '4px 8px',
+                    fontSize: '0.9rem',
+                    borderRadius: '4px',
+                    background: '#ff5252',
+                    color: '#fff',
+                    border: 'none',
+                    fontWeight: 'bold',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => verificarVazamento(item)}
+                >
+                  Verificar vazamento
+                </button>
+              </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* Mensagem de resultado da verificação */}
+      {vazamentoMsg && (
+        <div style={{ marginTop: '16px', fontWeight: 'bold', fontSize: '1.1rem' }}>
+          {vazamentoMsg}
         </div>
       )}
     </div>

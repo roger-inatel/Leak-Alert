@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 function App() {
   const [email, setEmail] = useState('');
   const [emails, setEmails] = useState<string[]>([]);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   return (
     <div
@@ -33,9 +35,16 @@ function App() {
       <form
         onSubmit={e => {
           e.preventDefault();
+          if (emails.includes(email.trim())) {
+            setError('E-mail já cadastrado!');
+            setSuccess('');
+            return;
+          }
           if (email.trim() !== '') {
             setEmails([...emails, email]);
             setEmail('');
+            setError('');
+            setSuccess('E-mail cadastrado com sucesso!');
           }
         }}
         style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
@@ -43,7 +52,11 @@ function App() {
         <input
           type="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={e => {
+            setEmail(e.target.value);
+            setError('');
+            setSuccess('');
+          }}
           placeholder="Digite seu e-mail"
           style={{ padding: '8px', fontSize: '1rem', borderRadius: '4px', border: 'none', marginBottom: '8px', width: '250px' }}
           required
@@ -54,15 +67,25 @@ function App() {
         >
           Cadastrar e-mail
         </button>
+        {error && (
+          <div style={{ color: 'red', marginTop: '8px' }}>
+            {error}
+          </div>
+        )}
+        {success && (
+          <div style={{ color: 'lightgreen', marginTop: '8px' }}>
+            {success}
+          </div>
+        )}
       </form>
 
       {/* Lista de e-mails cadastrados */}
       {emails.length > 0 && (
-        <div style={{ marginTop: '24px' }}>
-          <h3>E-mails cadastrados:</h3>
-          <ul>
+        <div style={{ marginTop: '24px', background: '#333', padding: '16px', borderRadius: '8px', minWidth: '300px' }}>
+          <h3 style={{ marginBottom: '12px' }}>E-mails cadastrados:</h3>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
             {emails.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li key={idx} style={{ marginBottom: '8px', color: '#4fc3f7', fontWeight: 'bold' }}>{item}</li>
             ))}
           </ul>
         </div>
